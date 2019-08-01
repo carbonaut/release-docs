@@ -1,0 +1,22 @@
+{
+  "name": "semantic-release-wellabe",
+  "version": "1.1.7",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./scripts/setup.sh"
+  },
+  "bin": {
+    "semantic-release-wellabe": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^16.28.7",
+    "debug": "^4.1.1",
+    "minimist": "^1.2.0",
+    "shelljs": "^0.8.3",
+    "showdown": "^1.9.0"
+  }
+}
