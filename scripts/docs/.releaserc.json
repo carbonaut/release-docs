@@ -5,8 +5,8 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
-      "prepareCmd": "VERSION=${nextRelease.version} npm run adjust-version",
-      "successCmd": "npm run release-success"
+      "prepareCmd": "release-docs-adjust-version --version=${nextRelease.version}",
+      "successCmd": "release-docs-update-changelog-project --owner=$GH_CHANGELOG_REPO_OWNER --repo=$GH_CHANGELOG_REPO --ref=$GH_CHANGELOG_REF --token=$GH_TOKEN --project=$PROJECT_TITLE"
     }],
     ["@semantic-release/git", {
       "assets": ["package-lock.json", "package.json", "CHANGELOG.md"],
