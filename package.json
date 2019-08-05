@@ -1,5 +1,5 @@
 {
-  "name": "release-docs",
+  "name": "@carbonaut/release-docs",
   "version": "1.0.0",
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
