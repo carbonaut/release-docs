@@ -14,7 +14,7 @@ jobs:
           command: sudo npm i -g npm@latest
       - run:
           name: Install project dependencies
-          command: npm ci --ignore-scripts
+          command: npm ci
       - persist_to_workspace:
           root: .
           paths: node_modules
