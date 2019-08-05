@@ -7,6 +7,14 @@ const Listr = require('listr');
 
 debug.enable('*');
 
+const checkIonicFlag = (ionicFlag) => {
+	let isIonicProject = ionicFlag ? JSON.parse(ionicFlag) : false;
+
+	if (!isIonicProject) {
+		return 'Flag "--ionic" not found. File config.xml is only updated for Ionic projects.';
+	}
+};
+
 const updateVersionAttribute = (version, configJsonData) => {
 	configJsonData.widget.version = version;
 };
@@ -49,5 +57,6 @@ const updateWidgetTagVersion = (version, fileTitle = 'config.xml') => {
 };
 
 module.exports = {
-	updateWidgetTagVersion: updateWidgetTagVersion
+	updateWidgetTagVersion: updateWidgetTagVersion,
+	checkIonicFlag: checkIonicFlag
 };
