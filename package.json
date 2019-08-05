@@ -1,10 +1,13 @@
 {
   "name": "@carbonaut/release-docs",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
     "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bin": {
     "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
