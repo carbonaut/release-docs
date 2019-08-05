@@ -2,27 +2,33 @@ const debug = require('debug');
 const error = debug('update-package-version:error');
 const log = debug('update-package-version:log');
 const fs = require('fs');
-const xml2json = require('xml2json');
 const Listr = require('listr');
+var convert = require('xml-js');
 
 debug.enable('*');
 
-const checkIonicFlag = (ionicFlag) => {
-	let isIonicProject = ionicFlag ? JSON.parse(ionicFlag) : false;
-
-	if (!isIonicProject) {
-		return 'Flag "--ionic" not found. File config.xml is only updated for Ionic projects.';
+const checkFileExists = (fileTitle = 'config.xml') => {
+	if (!fs.existsSync(fileTitle)) {
+		return `File ${fileTitle} not found.`;
+	}
+	else {
+		error(`File ${fileTitle} found.`);
 	}
 };
 
 const updateVersionAttribute = (version, configJsonData) => {
-	configJsonData.widget.version = version;
+	try {
+		configJsonData.elements[0].attributes.version = version;
+	} catch (e) {
+		error('[updateVersionAttribute] Error updating version attribute from widget tag: %j', e);
+		throw 'Error updating version attribute from widget tag.';
+	}
 };
 
 const updateFileContent = (fileTitle, version, configJsonData) => {
 	log(`Saving file ${fileTitle} with new widget version ${version}.`);
 
-	const xmlContent = xml2json.toXml(JSON.stringify(configJsonData));
+	const xmlContent = convert.json2xml(configJsonData, {spaces: 4});
 	fs.writeFileSync(fileTitle, xmlContent);
 
 	log(`File ${fileTitle} updated successfully with widget tag version ${version}!`);
@@ -31,8 +37,8 @@ const updateFileContent = (fileTitle, version, configJsonData) => {
 const parseFileContent = (fileTitle, ctx) => {
 	log(`Start parsing of ${fileTitle} file to JSON.`);
 
-	const fileData = fs.readFileSync(fileTitle, 'utf-8');
-	ctx.configJsonData = JSON.parse(xml2json.toJson(fileData, {reversible: true}));
+	var fileData = fs.readFileSync(fileTitle, 'utf8');
+	ctx.configJsonData = convert.xml2js(fileData);
 
 	log(`File ${fileTitle} read and parsed to JSON successfully!`);
 
@@ -58,5 +64,5 @@ const updateWidgetTagVersion = (version, fileTitle = 'config.xml') => {
 
 module.exports = {
 	updateWidgetTagVersion: updateWidgetTagVersion,
-	checkIonicFlag: checkIonicFlag
+	checkFileExists: checkFileExists
 };
