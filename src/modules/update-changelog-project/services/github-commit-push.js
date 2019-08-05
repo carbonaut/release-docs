@@ -13,6 +13,7 @@
 
 const Listr = require('listr');
 const debug = require('debug');
+const validateRequiredArgs = require('../../common/validateRequiredArgs');
 const error = debug('github-commit-push:error');
 const log = debug('github-commit-push:log');
 
@@ -28,7 +29,7 @@ const BLOB_INFO = {
 /*
   Init options:
   - Token: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
-  - owner, repo and ref: GET /repos/:owner/:repo/git/refs/:ref
+  - owner, repo and ref: GET /repo/:owner/:repo/git/refs/:ref
   - forceUpdate
   - commitMessage
  */
@@ -40,8 +41,8 @@ const setupConfiguration = (options) => {
 		!options.files ||
 		(options.files.length === 0) ||
 		!options.commitMessage) {
-		log('Error loading configuration.');
-		throw 'Missing required options.';
+		error('Error loading configuration: %j', options);
+		throw 'Missing required options: owner, repo, files, commitMessage.';
 	}
 
 	gitHub = new GitHubApi({
@@ -57,7 +58,7 @@ const setupConfiguration = (options) => {
 		commitMessage: options.commitMessage
 	};
 
-	log('Configuration loaded successfully!');
+	log('Configuration loaded successfully: %j', gitHubConfig);
 };
 
 /*
@@ -126,7 +127,7 @@ const createTree = async (referenceCommitInfo) => {
 
 		let blobFiles = await Promise.all(promises);
 
-		log('Creating GIT tree for %s...');
+		log('Creating GIT tree: %s', referenceCommitInfo);
 
 		let createdTree = await gitHub.git.createTree(
 			{
@@ -150,7 +151,7 @@ const createTree = async (referenceCommitInfo) => {
 
 const createCommit = async (referenceCommitInfo, treeInfo) => {
 	try {
-		log('Creating GIT commit...');
+		log('Creating GIT commit. Reference commit info %j. Tree info: %j.', referenceCommitInfo, treeInfo);
 
 		const newCommit = await gitHub.git.createCommit(
 			{
@@ -173,7 +174,7 @@ const createCommit = async (referenceCommitInfo, treeInfo) => {
 
 const updateCommitReference = async (commitInfo) => {
 	try {
-		log('Updating GIT commit reference...');
+		log('Updating GIT commit reference. Commit info %j', commitInfo);
 
 		gitHub.git.updateRef(
 			{
@@ -228,18 +229,42 @@ const commitAndPush = (tasks) => {
 	}
 };
 
+const parseInfoFromRepoUrl = (repoUrl) => {
+	log(`Parsing info from parameter "repo_url": ${repoUrl}`);
+
+	let repoUrlSplit = repoUrl.split('/');
+
+	if ((repoUrlSplit[3] === undefined) ||
+			(repoUrlSplit[4] === undefined)) {
+		error(`Error parsing info from parameter "repo_url": %j`, repoUrlSplit);
+		throw new Error('Owner and repo informations not found on parameter "repo_url". Set this as: "--repo_url=http://github.com/:owner/:repo"');
+	}
+	else {
+		return {
+			owner: repoUrlSplit[3],
+			repo: repoUrlSplit[4]
+		}
+	}
+};
+
 const init = async (args, changelogHtmlContent) => {
 	let tasks = [
 		{
+			title: `Validating required parameters...`,
+			task: () => validateRequiredArgs(args, ['repo_url', 'token', 'project'])
+		},
+		{
 			title: `Setting up GIT configuration variables...`,
 			task: () => {
+				let infoRepoUrl = parseInfoFromRepoUrl(args['repo_url']);
+
 				setupConfiguration({
-					owner: args.owner || null,
-					repo: args.repo || null,
+					owner: infoRepoUrl.owner || null,
+					repo: infoRepoUrl.repo || null,
 					files: [
 						{path: `${args.project}.html`, content: changelogHtmlContent}
 					],
-					ref: args.ref || null,
+					ref: args.ref || 'heads/master',
 					forceUpdate: false,
 					commitMessage: `feat(changelog): update file after release from project ${args.project}.`,
 					token: args.token || null
@@ -248,7 +273,7 @@ const init = async (args, changelogHtmlContent) => {
 		}];
 
 	commitAndPush(tasks);
-	return new Listr(tasks);
+	return new Listr(tasks, {collapse: false});
 };
 
 module.exports = {
