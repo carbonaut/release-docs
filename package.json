@@ -1,6 +1,6 @@
 {
   "name": "release-docs",
-  "version": "1.3.12",
+  "version": "1.0.0",
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
