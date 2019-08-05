@@ -5,7 +5,8 @@
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./scripts/setup.sh"
+    "postinstall": "./scripts/setup.sh",
+    "semantic-release": "semantic-release"
   },
   "bin": {
     "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
@@ -22,7 +23,9 @@
     "showdown": "^1.9.0",
     "xml-js": "^1.6.11",
     "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^7.0.16",
+    "@semantic-release/git": "^7.0.16"
+  },
+  "devDependencies": {
     "semantic-release": "^15.13.19"
   }
 }
