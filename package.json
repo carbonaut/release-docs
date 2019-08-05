@@ -5,7 +5,7 @@
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release "
   },
   "bin": {
     "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
