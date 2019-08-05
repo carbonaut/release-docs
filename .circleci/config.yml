@@ -1,0 +1,45 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/release-docs
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/release-docs
+      - run:
+          name: Update npm to latest version
+          command: sudo npm i -g npm@latest
+      - run:
+          name: Install project dependencies
+          command: npm ci
+      - persist_to_workspace:
+          root: .
+          paths: node_modules
+
+  release:
+    working_directory: ~/release-docs
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/release-docs
+      - run:
+          name: Create project release
+          command: semantic-release
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - release:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
