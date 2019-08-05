@@ -20,7 +20,7 @@ const init = async () => {
 		},
 		{
 			title: `Updating config.xml version to ${version}`,
-			skip: () => updateIonicConfigVersion.checkIonicFlag(argv.ionic),
+			skip: () => updateIonicConfigVersion.checkFileExists(),
 			task: () => updateIonicConfigVersion.updateWidgetTagVersion(version)
 		}];
 
