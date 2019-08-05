@@ -28,11 +28,8 @@ jobs:
       - attach_workspace:
           at: ~/release-docs
       - run:
-          name: Install project dependencies
-          command: npm ci
-      - run:
           name: Create project release
-          command: semantic-release
+          command: npm run semantic-release
 
 workflows:
   version: 2
