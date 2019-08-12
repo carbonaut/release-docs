@@ -4,17 +4,18 @@ const error = debug('semantic-release-setup:error');
 const log = debug('semantic-release-setup:log');
 const fs = require('fs');
 const releaseConfig = require('../docs/.releaserc.json');
-const CONFIG_FILE_TITLE = '.releaserc.json';
+const INIT_CWD = process.env.INIT_CWD;
+const CONFIG_FILE_PATH = `${INIT_CWD}/.releaserc.json`;
 
 debug.enable('*');
 
-const checkFileExists = (fileTitle = CONFIG_FILE_TITLE) => {
-  if (fs.existsSync(fileTitle)) {
-    return `File ${fileTitle} found. Keeping current file found.`;
+const checkFileExists = (filePath = CONFIG_FILE_PATH) => {
+  if (fs.existsSync(filePath)) {
+    return `File ${filePath} found. Keeping current file found.`;
   }
 };
 
-const installPackageDependencies = async () => {
+const installPackageDependencies = () => {
 	try {
 		log(`Executing command "npm i semantic-release --save-dev"`);
 		execa('npm', ['i', 'semantic-release', '--save-dev']).all.pipe(process.stdout);
@@ -23,13 +24,13 @@ const installPackageDependencies = async () => {
 	}
 };
 
-const createConfigurationFile = async (fileTitle = CONFIG_FILE_TITLE) => {
+const createConfigurationFile = (filePath = CONFIG_FILE_PATH) => {
   try {
-    log(`Creating configuration ${fileTitle}.`);
-    fs.writeFileSync(fileTitle, JSON.stringify(releaseConfig, null, 2));
-    log(`File ${fileTitle} created successfully!`);
+    log(`Creating configuration ${filePath}.`);
+    fs.writeFileSync(filePath, JSON.stringify(releaseConfig, null, 2));
+    log(`File ${filePath} created successfully!`);
   } catch (err) {
-    error(`Error creating file ${fileTitle}.`, err);
+    error(`Error creating file ${filePath}.`, err);
   }
 };
 
