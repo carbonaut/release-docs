@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/carbonaut-io/release-docs/compare/v1.4.2...v1.5.0) (2019-08-12)
+
+
+### Bug Fixes
+
+* **package:** add semantic-release script. ([69eba49](https://github.com/carbonaut-io/release-docs/commit/69eba49))
+
+
+### Features
+
+* **setup:** create nodejs script for the initial setup. ([5fb5e8b](https://github.com/carbonaut-io/release-docs/commit/5fb5e8b))
+
 ## [1.4.2](https://github.com/carbonaut-io/release-docs/compare/v1.4.1...v1.4.2) (2019-08-12)
 
 
