@@ -18,7 +18,7 @@ const checkFileExists = (filePath = CONFIG_FILE_PATH) => {
 const installPackageDependencies = () => {
 	try {
 		log(`Executing command "npm i semantic-release --save-dev"`);
-		execa('npm', ['i', 'semantic-release', '--save-dev']).all.pipe(process.stdout);
+		execa('npm', ['--prefix', INIT_CWD, 'i', 'semantic-release', '--save-dev']).all.pipe(process.stdout);
 	} catch (err) {
 		error('Error executing command "npm i semantic-release --save-dev"', err);
 	}
