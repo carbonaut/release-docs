@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/carbonaut-io/release-docs/compare/v1.3.12...v1.4.0) (2019-08-12)
+
+
+### Features
+
+* **package:** update version to match NPM version. ([15fbde2](https://github.com/carbonaut-io/release-docs/commit/15fbde2))
+
 # [1.2.0](https://github.com/carbonaut-io/release-docs/compare/v1.1.1...v1.2.0) (2019-08-12)
 
 
