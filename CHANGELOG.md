@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/carbonaut-io/release-docs/compare/v1.1.0...v1.1.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **setup:** fix package path. ([6617b86](https://github.com/carbonaut-io/release-docs/commit/6617b86))
+
 # [1.1.0](https://github.com/carbonaut-io/release-docs/compare/v1.0.0...v1.1.0) (2019-08-12)
 
 
