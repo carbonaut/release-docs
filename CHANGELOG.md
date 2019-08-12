@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/carbonaut-io/release-docs/compare/v1.4.0...v1.4.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **setup:** update package title. ([3096cdf](https://github.com/carbonaut-io/release-docs/commit/3096cdf))
+
 # [1.4.0](https://github.com/carbonaut-io/release-docs/compare/v1.3.12...v1.4.0) (2019-08-12)
 
 
