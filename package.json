@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
+    "postinstall": "./scripts/setup.sh",
     "semantic-release": "semantic-release"
   },
   "publishConfig": {
