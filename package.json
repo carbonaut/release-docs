@@ -1,6 +1,6 @@
 {
   "name": "@carbonaut/release-docs",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
