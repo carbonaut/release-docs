@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/carbonaut-io/release-docs/compare/v1.5.0...v1.5.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **semantic-release-setup:** prepend INIT_CWD to config file path. ([5aadf2a](https://github.com/carbonaut-io/release-docs/commit/5aadf2a))
+
 # [1.5.0](https://github.com/carbonaut-io/release-docs/compare/v1.4.2...v1.5.0) (2019-08-12)
 
 
