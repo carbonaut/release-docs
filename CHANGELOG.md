@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/carbonaut-io/release-docs/compare/v1.5.3...v1.6.0) (2019-08-12)
+
+
+### Features
+
+* **setup:** improve debug message. Remove logs. ([8a67c33](https://github.com/carbonaut-io/release-docs/commit/8a67c33))
+
 ## [1.5.3](https://github.com/carbonaut-io/release-docs/compare/v1.5.2...v1.5.3) (2019-08-12)
 
 
