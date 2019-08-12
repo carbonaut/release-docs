@@ -7,8 +7,6 @@ const releaseConfig = require('../docs/.releaserc.json');
 const INIT_CWD = process.env.INIT_CWD;
 const CONFIG_FILE_PATH = `${INIT_CWD}/.releaserc.json`;
 
-debug.enable('*');
-
 const checkFileExists = (filePath = CONFIG_FILE_PATH) => {
   if (fs.existsSync(filePath)) {
     return `File ${filePath} found. Keeping current file found.`;
@@ -16,11 +14,13 @@ const checkFileExists = (filePath = CONFIG_FILE_PATH) => {
 };
 
 const installPackageDependencies = () => {
+  const commandLine = `npm i --prefix ${INIT_CWD} semantic-release --save-dev`;
+
 	try {
-		log(`Executing command "npm i semantic-release --save-dev"`);
+		log(`Executing command "${commandLine}"`);
 		execa('npm', ['--prefix', INIT_CWD, 'i', 'semantic-release', '--save-dev']).all.pipe(process.stdout);
 	} catch (err) {
-		error('Error executing command "npm i semantic-release --save-dev"', err);
+		error(`Error executing command "${commandLine}"`, err);
 	}
 };
 
