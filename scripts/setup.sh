@@ -1,5 +1,5 @@
 cd $INIT_CWD
-PACKAGE_TITLE=release-docs
+PACKAGE_TITLE=@carbonaut/release-docs
 npm i semantic-release --save-dev
 
 cp ./node_modules/$PACKAGE_TITLE/scripts/docs/.releaserc.json .
