@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/carbonaut-io/release-docs/compare/v1.0.0...v1.1.0) (2019-08-12)
+
+
+### Features
+
+* **setup:** add "semantic-release" to package scripts. ([e71fde3](https://github.com/carbonaut-io/release-docs/commit/e71fde3))
+
 # 1.0.0 (2019-08-05)
 
 
