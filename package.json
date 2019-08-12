@@ -4,13 +4,13 @@
   "description": "",
   "main": "src/modules/update-changelog-project/index.js",
   "scripts": {
-    "postinstall": "./scripts/setup.sh",
-    "semantic-release": "semantic-release"
+    "postinstall": "release-docs-setup"
   },
   "publishConfig": {
     "access": "public"
   },
   "bin": {
+    "release-docs-setup": "src/modules/setup/index.js",
     "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
     "release-docs-adjust-version": "src/modules/adjust-version/index.js"
   },
