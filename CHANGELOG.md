@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/carbonaut-io/release-docs/compare/v1.7.0...v1.7.1) (2019-08-15)
+
+
+### Bug Fixes
+
+* **shareable-configuration:** set GH_REPO_URL variable. ([c77df92](https://github.com/carbonaut-io/release-docs/commit/c77df92))
+
 # [1.7.0](https://github.com/carbonaut-io/release-docs/compare/v1.6.0...v1.7.0) (2019-08-15)
 
 
