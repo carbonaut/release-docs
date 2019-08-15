@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/carbonaut-io/release-docs/compare/v1.6.0...v1.7.0) (2019-08-15)
+
+
+### Features
+
+* **shareable-configuration:** export shareable config to be used. ([d01bd74](https://github.com/carbonaut-io/release-docs/commit/d01bd74))
+
 # [1.6.0](https://github.com/carbonaut-io/release-docs/compare/v1.5.3...v1.6.0) (2019-08-12)
 
 
