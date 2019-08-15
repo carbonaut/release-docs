@@ -5,10 +5,10 @@ const semanticReleaseSetup = require('./services/semantic-release-setup');
 
 const init = async () => {
 	const tasks = [
-		{
-			title: `Installing "semantic-release" package...`,
-			task: () => semanticReleaseSetup.installPackageDependencies()
-		},
+		// {
+		// 	title: `Installing "semantic-release" package...`,
+		// 	task: () => semanticReleaseSetup.installPackageDependencies()
+		// },
 		{
 			title: `Creating .releaserc.json config...`,
       skip: () => semanticReleaseSetup.checkFileExists(),
