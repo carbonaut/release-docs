@@ -247,27 +247,27 @@ const parseInfoFromRepoUrl = (repoUrl) => {
 	}
 };
 
-const init = async (args, changelogHtmlContent) => {
+const init = async (envVars, changelogHtmlContent) => {
 	let tasks = [
 		{
-			title: `Validating required parameters...`,
-			task: () => validateRequiredArgs(args, ['repo_url', 'token', 'project'])
+			title: `Validating required environment variables...`,
+			task: () => validateRequiredArgs(envVars, ['CHANGELOG_PROJECT_REPO_URL', 'GH_TOKEN', 'PROJECT_TITLE'])
 		},
 		{
 			title: `Setting up GIT configuration variables...`,
 			task: () => {
-				let infoRepoUrl = parseInfoFromRepoUrl(args['repo_url']);
+				let infoRepoUrl = parseInfoFromRepoUrl(envVars.CHANGELOG_PROJECT_REPO_URL);
 
 				setupConfiguration({
 					owner: infoRepoUrl.owner || null,
 					repo: infoRepoUrl.repo || null,
 					files: [
-						{path: `${args.project}.html`, content: changelogHtmlContent}
+						{path: `${envVars.PROJECT_TITLE}.html`, content: changelogHtmlContent}
 					],
-					ref: args.ref || 'heads/master',
+					ref: envVars.CHANGELOG_PROJECT_REF || 'heads/master',
 					forceUpdate: false,
-					commitMessage: `feat(changelog): update file after release from project ${args.project}.`,
-					token: args.token || null
+					commitMessage: `feat(changelog): update file after release from project ${envVars.PROJECT_TITLE}.`,
+					token: envVars.GH_TOKEN || null
 				});
 			}
 		}];
