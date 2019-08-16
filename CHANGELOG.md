@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/carbonaut-io/release-docs/compare/v1.7.1...v1.8.0) (2019-08-16)
+
+
+### Features
+
+* **update-changelog-project:** variables name improvements; using environments variables. ([950655a](https://github.com/carbonaut-io/release-docs/commit/950655a))
+
 ## [1.7.1](https://github.com/carbonaut-io/release-docs/compare/v1.7.0...v1.7.1) (2019-08-15)
 
 
