@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/carbonaut-io/release-docs/compare/v1.12.0...v1.13.0) (2019-08-17)
+
+
+### Features
+
+* **shareable-configuration:** update config file. ([a3d6d41](https://github.com/carbonaut-io/release-docs/commit/a3d6d41))
+
 # [1.12.0](https://github.com/carbonaut-io/release-docs/compare/v1.11.0...v1.12.0) (2019-08-17)
 
 
