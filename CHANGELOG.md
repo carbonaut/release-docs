@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/carbonaut-io/release-docs/compare/v1.10.0...v1.11.0) (2019-08-17)
+
+
+### Features
+
+* **shareable-configuration:** update way to load config. ([8e2fdda](https://github.com/carbonaut-io/release-docs/commit/8e2fdda))
+
 # [1.10.0](https://github.com/carbonaut-io/release-docs/compare/v1.9.0...v1.10.0) (2019-08-17)
 
 
