@@ -2,7 +2,7 @@
   "name": "@carbonaut/release-docs",
   "version": "1.9.0",
   "description": "",
-  "main": "src/modules/update-changelog-project/index.js",
+  "main": "index.js",
   "scripts": {
     "postinstall": "release-docs-setup",
     "semantic-release": "semantic-release"
