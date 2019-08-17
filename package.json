@@ -11,7 +11,6 @@
     "access": "public"
   },
   "bin": {
-    "release-docs": "src/modules/shareable-configuration/index.js",
     "release-docs-setup": "src/modules/setup/index.js",
     "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
     "release-docs-adjust-version": "src/modules/adjust-version/index.js"

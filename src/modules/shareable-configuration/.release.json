@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-module.exports = {
+{
   "plugins":
     [
       "@semantic-release/commit-analyzer",
@@ -18,4 +16,4 @@ module.exports = {
     ],
   "preset":
     "angular"
-};
+}
