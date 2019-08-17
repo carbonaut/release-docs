@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/carbonaut-io/release-docs/compare/v1.9.0...v1.10.0) (2019-08-17)
+
+
+### Features
+
+* **index:** add release configuration into index.js. ([dab4144](https://github.com/carbonaut-io/release-docs/commit/dab4144))
+
 # [1.9.0](https://github.com/carbonaut-io/release-docs/compare/v1.8.0...v1.9.0) (2019-08-17)
 
 
