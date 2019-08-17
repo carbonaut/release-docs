@@ -1,7 +1,7 @@
 {
   "name": "@carbonaut/release-docs",
   "version": "1.11.0",
-  "description": "description here",
+  "description": "",
   "main": "src/modules/shareable-configuration/index.js",
   "scripts": {
     "postinstall": "release-docs-setup",
