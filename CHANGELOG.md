@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/carbonaut-io/release-docs/compare/v1.8.0...v1.9.0) (2019-08-17)
+
+
+### Features
+
+* **shareable-configuration:** update to JSON file. ([4f40a3c](https://github.com/carbonaut-io/release-docs/commit/4f40a3c))
+
 # [1.8.0](https://github.com/carbonaut-io/release-docs/compare/v1.7.1...v1.8.0) (2019-08-16)
 
 
