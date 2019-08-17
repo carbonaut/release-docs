@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/carbonaut-io/release-docs/compare/v1.11.0...v1.12.0) (2019-08-17)
+
+
+### Features
+
+* **package:** move devDependencies to dependencies. ([eef3fe8](https://github.com/carbonaut-io/release-docs/commit/eef3fe8))
+
 # [1.11.0](https://github.com/carbonaut-io/release-docs/compare/v1.10.0...v1.11.0) (2019-08-17)
 
 
