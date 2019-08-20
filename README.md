@@ -58,7 +58,7 @@ Ensure that your CI configuration has the following environment variables set:
 
 - **CHANGELOG_PROJECT_REPO_URL**: GitHub project URL which maintains the external changelog project. E.g.: `https://github.com/<owner>/<project>` 
 
-- **PROJECT_TITLE**: ID to identify the project on the external changelog project
+- **CHANGELOG_PROJECT_FILE**: File path to save the changelog on external project. E.g.: `assets/files/my-project.html`
 
 ### Overwritten options
 
