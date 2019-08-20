@@ -251,7 +251,7 @@ const init = async (args, changelogHtmlContent) => {
 	let tasks = [
 		{
 			title: `Validating required parameters...`,
-			task: () => validateRequiredArgs(args, ['repo_url', 'token', 'project'])
+			task: () => validateRequiredArgs(args, ['repo_url', 'token', 'file_path'])
 		},
 		{
 			title: `Setting up GIT configuration variables...`,
