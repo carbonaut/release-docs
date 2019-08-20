@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/carbonaut-io/release-docs/compare/v1.14.0...v1.14.1) (2019-08-20)
+
+
+### Bug Fixes
+
+* **github-commit-push:** set file_path as required. ([2c191a4](https://github.com/carbonaut-io/release-docs/commit/2c191a4))
+
 # [1.14.0](https://github.com/carbonaut-io/release-docs/compare/v1.13.0...v1.14.0) (2019-08-20)
 
 
