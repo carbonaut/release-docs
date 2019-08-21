@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/carbonaut-io/release-docs.svg?style=svg&circle-token=73ff7147b9024522ade955b02af304759d85cdf4)](https://circleci.com/gh/carbonaut-io/release-docs)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # @carbounaut/release-docs
 
@@ -46,7 +47,7 @@ When installing this package for the first time, the following shareable configu
 }
 ```
 
-## Configuration
+### Configuration
 
 Ensure that your CI configuration has the following environment variables set:
 
@@ -55,6 +56,20 @@ Ensure that your CI configuration has the following environment variables set:
 - **CHANGELOG_PROJECT_REPO_URL**: GitHub project URL which maintains the external changelog project. E.g.: `https://github.com/<owner>/<project>` 
 
 - **CHANGELOG_PROJECT_FILE**: File path to save the changelog on external project. E.g.: `assets/files/my-project.html`
+
+### Trigger a release locally
+
+```bash
+$ CHANGELOG_PROJECT_REPO_URL=<GitHub project URL> CHANGELOG_PROJECT_FILE=<GitHub file path> GH_TOKEN=<GitHub token> semantic-release --dry-run=false --no-ci
+```
+
+### Automation with CI
+
+First, setup all the required [environment variables](#Configuration) on your CI environment. Then just add the following script to your CI configuration file:
+
+```bash
+$ semantic-release
+```
 
 ### Scripts
 
