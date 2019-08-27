@@ -87,9 +87,15 @@ const getCommitReference = async () => {
  */
 
 const createBlobForFile = async (file) => {
-	if (!file || typeof file.path !== 'string' || typeof file.content !== 'string') {
-		error('File path and content must be string: %s', file.path);
-		throw `File path and content must be string: ${file.path}`;
+  let fileContent = file.content;
+
+  if (typeof file.content === 'object') {
+    fileContent = JSON.stringify(fileContent);
+  }
+
+	if (!file || typeof file.path !== 'string' || typeof fileContent !== 'string') {
+		error('File path and content must be string: %s (type %s)', file.path,  typeof fileContent);
+		throw `File path and content must be string: ${file.path} (type ${typeof fileContent})`;
 	}
 
 	try {
@@ -99,7 +105,7 @@ const createBlobForFile = async (file) => {
 			.createBlob({
 				owner: gitHubConfig.owner,
 				repo: gitHubConfig.repo,
-				content: file.content,
+				content: fileContent,
 				encoding: "utf-8"
 			});
 
@@ -247,7 +253,7 @@ const parseInfoFromRepoUrl = (repoUrl) => {
 	}
 };
 
-const init = async (args, changelogHtmlContent) => {
+const init = async (args, changelogParsedContent) => {
 	let tasks = [
 		{
 			title: `Validating required parameters...`,
@@ -262,7 +268,7 @@ const init = async (args, changelogHtmlContent) => {
 					owner: infoRepoUrl.owner || null,
 					repo: infoRepoUrl.repo || null,
 					files: [
-						{path: `${args.file_path}`, content: changelogHtmlContent}
+						{path: `${args.file_path}`, content: changelogParsedContent}
 					],
 					ref: args.ref || 'heads/master',
 					forceUpdate: false,

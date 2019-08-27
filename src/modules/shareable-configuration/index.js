@@ -5,7 +5,7 @@ module.exports = {
     "@semantic-release/changelog",
     ["@semantic-release/exec", {
       "prepareCmd": "release-docs-adjust-version --version=${nextRelease.version}",
-      "successCmd": "release-docs-update-changelog-project --repo_url=$CHANGELOG_PROJECT_REPO_URL --token=$GH_TOKEN --file_path=$CHANGELOG_PROJECT_FILE"
+      "successCmd": "release-docs-update-changelog-project --repo_url=$CHANGELOG_PROJECT_REPO_URL --token=$GH_TOKEN --file_path=$CHANGELOG_PROJECT_FILE --changelog_format=$CHANGELOG_FILE_FORMAT"
     }],
     ["@semantic-release/git", {
       "assets": ["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"],
