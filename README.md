@@ -3,7 +3,7 @@
 
 # @carbounaut/release-docs
 
-[**semantic-release**](https://github.com/semantic-release/semantic-release) shareable configuration to publish Angular and Ionic GitHub projects and to deploy the `changelog` file as a JSON to an external GitHub project.
+[**semantic-release**](https://github.com/semantic-release/semantic-release) shareable configuration to publish Angular and Ionic GitHub projects and to deploy the `changelog` file as a JSON or HTML format to an external GitHub project.
 
 ## Plugins
 
@@ -55,7 +55,9 @@ Ensure that your CI configuration has the following environment variables set:
 
 - **CHANGELOG_PROJECT_REPO_URL**: GitHub project URL which maintains the external changelog project. E.g.: `https://github.com/<owner>/<project>` 
 
-- **CHANGELOG_PROJECT_FILE**: File path to save the changelog on external project. E.g.: `assets/files/my-project.html`
+- **CHANGELOG_PROJECT_FILE**: File path to save the changelog on external project. E.g.: `assets/files/my-project.html`, `assets/files/my-project.json`
+
+- **CHANGELOG_FILE_FORMAT**: File format to parse the CHANGELOG.md file. Options available: `html` and `json` (default)
 
 ### Trigger a release locally
 
@@ -88,22 +90,22 @@ release-docs-adjust-version --version=<version>
 #### release-docs-update-changelog-project
 
 Update the external GitHub project with the new generated CHANGELOG:
-  - Convert the CHANGELOG.md file to JSON format
-  - Send the JSON changelog version to the external project set on `$CHANGELOG_PROJECT_REPO_URL` to the file path `$CHANGELOG_PROJECT_FILE`.
+  - Convert the CHANGELOG.md file to JSON or HTML format
+  - Send the parsed changelog content to the external project set on `$CHANGELOG_PROJECT_REPO_URL` to the file path `$CHANGELOG_PROJECT_FILE` as `$CHANGELOG_FILE_FORMAT` format.
 
 ```bash
-release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path>
+release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path> --changelog_format=<changelog file format>
 ```
 
 ### Overwritten options
 
 This following options are set by this shareable config:
 
-| Option                                                                                      | Value                                                                                                 |
-|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| [`@semantic-release/exec: prepareCmd`](https://github.com/semantic-release/exec#preparecmd) | `release-docs-adjust-version --version=${nextRelease.version}`                                        |
-| [`@semantic-release/exec: successCmd`](https://github.com/semantic-release/exec#successCmd) | `release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path>` |
-| [`@semantic-release/git: assets`](https://github.com/semantic-release/git#assets)           | `["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"]`                                 |
-| [`@semantic-release/git: message`](https://github.com/semantic-release/git#message)         | `chore(release): ${nextRelease.version} [skip ci] ${nextRelease.notes}`                               |
+| Option                                                                                      | Value                                                                                                                                  |
+|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [`@semantic-release/exec: prepareCmd`](https://github.com/semantic-release/exec#preparecmd) | `release-docs-adjust-version --version=${nextRelease.version}`                                                                         |
+| [`@semantic-release/exec: successCmd`](https://github.com/semantic-release/exec#successCmd) | `release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path> --changelog_format=<file format>` |
+| [`@semantic-release/git: assets`](https://github.com/semantic-release/git#assets)           | `["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"]`                                                                  |
+| [`@semantic-release/git: message`](https://github.com/semantic-release/git#message)         | `chore(release): ${nextRelease.version} [skip ci] ${nextRelease.notes}`                                                                |
 
 Other options use their default values. See each [plugin](#plugins) documentation for available options.
