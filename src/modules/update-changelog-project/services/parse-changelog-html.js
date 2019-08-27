@@ -10,7 +10,7 @@ const debug = require('debug');
 const showdown = require('showdown');
 const log = debug('parse-changelog-html:log');
 
-const getChangelogHtml = (changelogFilePath = './CHANGELOG.md') => {
+const getChangelog = (changelogFilePath = './CHANGELOG.md') => {
   return new Listr([
     {
       title: `Starting file conversion ${changelogFilePath} to HTML...`,
@@ -23,7 +23,7 @@ const getChangelogHtml = (changelogFilePath = './CHANGELOG.md') => {
       title: 'Converting changelog.md to HTML...',
       task: ctx => {
         const converter = new showdown.Converter();
-        ctx.htmlContent = converter.makeHtml(ctx.changelogOriginal);
+        ctx.changelogParsedContent = converter.makeHtml(ctx.changelogOriginal);
 
         log(`File %s converted to HTML successfully!`, changelogFilePath);
       }
@@ -31,5 +31,5 @@ const getChangelogHtml = (changelogFilePath = './CHANGELOG.md') => {
 };
 
 module.exports = {
-  getChangelogHtml: getChangelogHtml
+  getChangelog: getChangelog
 };
