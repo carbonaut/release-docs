@@ -15,14 +15,14 @@ const init = async () => {
 		const mainTasks = new Listr([
 			{
         skip: () => changelogFormat !== 'html',
-			  title: 'Parsing changelog to HTML format',
+			  title: 'Parsing changelog to HTML format...',
 				task: () => {
 			    return parseChangelogHtml.getChangelog();
         }
 			},
       {
         skip: () => changelogFormat !== 'json',
-        title: 'Parsing changelog to JSON format',
+        title: 'Parsing changelog to JSON format...',
         task: () => {
           return parseChangelogJson.getChangelog();
         }
