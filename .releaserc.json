@@ -5,7 +5,7 @@
     "@semantic-release/npm",
     [
       "@semantic-release/changelog", {
-        "changelogTitle": "Changelog"
+        "changelogTitle": "# ${nextRelease.version}"
       }
     ],
     ["@semantic-release/git", {
