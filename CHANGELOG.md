@@ -1,3 +1,12 @@
+# Changelog - latest version ${nextRelease.version}
+
+# [1.17.0](https://github.com/carbonaut-io/release-docs/compare/v1.16.0...v1.17.0) (2019-09-04)
+
+
+### Features
+
+* **shareable-configuration:** set changelogTitle. ([aaa90ff](https://github.com/carbonaut-io/release-docs/commit/aaa90ff))
+
 Changelog
 
 # [1.16.0](https://github.com/carbonaut-io/release-docs/compare/v1.15.0...v1.16.0) (2019-09-04)
