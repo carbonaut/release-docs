@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.19.0](https://github.com/carbonaut-io/release-docs/compare/v1.18.0...v1.19.0) (2019-09-04)
+
+
+### Features
+
+* **github-commit-push:** add "skip ci" tag to commit message. ([e186385](https://github.com/carbonaut-io/release-docs/commit/e186385))
+
 # [1.18.0](https://github.com/carbonaut-io/release-docs/compare/v1.17.0...v1.18.0) (2019-09-04)
 
 
