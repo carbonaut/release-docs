@@ -272,7 +272,7 @@ const init = async (args, changelogParsedContent) => {
 					],
 					ref: args.ref || 'heads/master',
 					forceUpdate: false,
-					commitMessage: `feat(changelog): update file ${args.file_path}.`,
+					commitMessage: `feat(changelog): update file ${args.file_path} [skip ci].`,
 					token: args.token || null
 				});
 			}
