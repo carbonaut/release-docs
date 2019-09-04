@@ -2,7 +2,9 @@ module.exports = {
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/changelog",
+    ["@semantic-release/changelog", {
+      "changelogTitle": "# Changelog - latest version ${nextRelease.version}"
+    }],
     ["@semantic-release/exec", {
       "prepareCmd": "release-docs-adjust-version --version=${nextRelease.version}",
       "successCmd": "release-docs-update-changelog-project --repo_url=$CHANGELOG_PROJECT_REPO_URL --token=$GH_TOKEN --file_path=$CHANGELOG_PROJECT_FILE --changelog_format=$CHANGELOG_FILE_FORMAT"
