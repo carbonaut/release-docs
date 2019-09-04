@@ -3,7 +3,7 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/changelog", {
-      "changelogTitle": "# Changelog - latest version ${nextRelease.version}"
+      "changelogTitle": "# Changelog"
     }],
     ["@semantic-release/exec", {
       "prepareCmd": "release-docs-adjust-version --version=${nextRelease.version}",
