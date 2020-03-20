@@ -1,0 +1,11 @@
+{
+  "awsCredentialsMock": {
+    "accessKeyId": "1234@ABC",
+    "secretAccessKey": "1234@ABC"
+  },
+  "uploadParams": {
+    "file": "File content test.",
+    "key": "CHANGELOG-EXAMPLE.md",
+    "bucket": "releases.wellabe.fit"
+  }
+}

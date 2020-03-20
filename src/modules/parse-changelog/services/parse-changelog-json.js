@@ -18,7 +18,7 @@ const getChangelog = (changelogFilePath = './CHANGELOG.md') => {
         log('Starting file conversion %s to JSON...', changelogFilePath);
 
         try {
-          ctx.changelogParsedContent = await parseChangelog(changelogFilePath);
+          ctx.changelogParsedContent = JSON.stringify(await parseChangelog(changelogFilePath));
           log(`File %s converted to JSON successfully!`, changelogFilePath);
         } catch (err) {
           error('Error converting changelog to JSON', err);

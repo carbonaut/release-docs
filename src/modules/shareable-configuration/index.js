@@ -7,7 +7,7 @@ module.exports = {
     }],
     ["@semantic-release/exec", {
       "prepareCmd": "release-docs-adjust-version --version=${nextRelease.version}",
-      "successCmd": "release-docs-update-changelog-project --repo_url=$CHANGELOG_PROJECT_REPO_URL --token=$GH_TOKEN --file_path=$CHANGELOG_PROJECT_FILE --changelog_format=$CHANGELOG_FILE_FORMAT"
+      "successCmd": "release-docs-changelog-upload-s3 --key=$RELEASE_DOCS_PROJECT_ID --awsAccessKeyId=$RELEASE_DOCS_AWS_ACCESS_KEY_ID --awsSecretAccessKey=$RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID --awsBucket=$RELEASE_DOCS_AWS_BUCKET"
     }],
     ["@semantic-release/git", {
       "assets": ["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"],
