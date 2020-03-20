@@ -29,12 +29,12 @@ This shareable configuration performs the following actions:
     - `CHANGELOG.md`
     - `config.xml`
 6. Publish a GitHub release and comment on released Pull Requests/Issues ([`@semantic-release/github`](https://github.com/semantic-release/github))
-7. Update the external GitHub project with the new generated CHANGELOG ([release-docs-update-changelog-project](#release-docs-update-changelog-project))
+7. Upload the new generated CHANGELOG to a S3 bucket ([release-docs-changelog-upload-s3](#release-docs-changelog-upload-s3))
 
 ## Install
 
 ```bash
-$ npm install --save-dev semantic-release @carbonaut/release-docs
+$ npm install --save-dev semantic-release@15 @carbonaut/release-docs
 ```
 
 ## Usage
@@ -51,18 +51,16 @@ When installing this package for the first time, the following shareable configu
 
 Ensure that your CI configuration has the following environment variables set:
 
-- **GH_TOKEN**: [GitHub personal access](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) token to access the external changelog project
+- **RELEASE_DOCS_PROJECT_ID**: Unique project identifier. It will be used as the changelog file title on the S3 bucket;
 
-- **CHANGELOG_PROJECT_REPO_URL**: GitHub project URL which maintains the external changelog project. E.g.: `https://github.com/<owner>/<project>` 
+- **RELEASE_DOCS_AWS_ACCESS_KEY_ID**: [AWS access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted; 
 
-- **CHANGELOG_PROJECT_FILE**: File path to save the changelog on external project. E.g.: `assets/files/my-project.html`, `assets/files/my-project.json`
-
-- **CHANGELOG_FILE_FORMAT**: File format to parse the CHANGELOG.md file. Options available: `html` and `json` (default)
+- **RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID**: [AWS secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted.
 
 ### Trigger a release locally
 
 ```bash
-$ CHANGELOG_PROJECT_REPO_URL=<GitHub project URL> CHANGELOG_PROJECT_FILE=<GitHub file path> GH_TOKEN=<GitHub token> semantic-release --dry-run=false --no-ci
+$ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS access key> RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID=<AWS secret access key> RELEASE_DOCS_AWS_BUCKET=<AWS bucket> GH_TOKEN=<GitHub token> semantic-release --dry-run=false --no-ci
 ```
 
 ### Automation with CI
@@ -87,25 +85,26 @@ Update the package version to the next release version on the following files:
 release-docs-adjust-version --version=<version>
 ```
 
-#### release-docs-update-changelog-project
+#### release-docs-changelog-upload-s3
 
-Update the external GitHub project with the new generated CHANGELOG:
-  - Convert the CHANGELOG.md file to JSON or HTML format
-  - Send the parsed changelog content to the external project set on `$CHANGELOG_PROJECT_REPO_URL` to the file path `$CHANGELOG_PROJECT_FILE` as `$CHANGELOG_FILE_FORMAT` format.
+Upload the new generated CHANGELOG to a S3 bucket:
 
+1. Convert the CHANGELOG.md file to JSON format;
+2. Send the parsed changelog content to the S3 bucket `RELEASE_DOCS_AWS_BUCKET`. This file will be available at _https://s3.eu-central-1.amazonaws.com/<RELEASE_DOCS_AWS_BUCKET>/<RELEASE_DOCS_PROJECT_ID>.json_.
+  
 ```bash
-release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path> --changelog_format=<changelog file format>
+release-docs-changelog-upload-s3 --key=<ṕroject ID> --awsAccessKeyId=<AWS access key> --awsSecretAccessKey<AWS secret access key> --awsBucket=<AWS bucket>"
 ```
 
 ### Overwritten options
 
 This following options are set by this shareable config:
 
-| Option                                                                                      | Value                                                                                                                                  |
-|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| [`@semantic-release/exec: prepareCmd`](https://github.com/semantic-release/exec#preparecmd) | `release-docs-adjust-version --version=${nextRelease.version}`                                                                         |
-| [`@semantic-release/exec: successCmd`](https://github.com/semantic-release/exec#successCmd) | `release-docs-update-changelog-project --repo_url=<repo URL> --token=<token> --file_path=<file path> --changelog_format=<file format>` |
-| [`@semantic-release/git: assets`](https://github.com/semantic-release/git#assets)           | `["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"]`                                                                  |
-| [`@semantic-release/git: message`](https://github.com/semantic-release/git#message)         | `chore(release): ${nextRelease.version} [skip ci] ${nextRelease.notes}`                                                                |
+| Option                                                                                      | Value                                                                                                                                                         |
+|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`@semantic-release/exec: prepareCmd`](https://github.com/semantic-release/exec#preparecmd) | `release-docs-adjust-version --version=${nextRelease.version}`                                                                                                |
+| [`@semantic-release/exec: successCmd`](https://github.com/semantic-release/exec#successCmd) | `release-docs-changelog-upload-s3 --key=<ṕroject ID> --awsAccessKeyId=<AWS access key> --awsSecretAccessKey<AWS secret access key> --awsBucket=<AWS bucket>"` |
+| [`@semantic-release/git: assets`](https://github.com/semantic-release/git#assets)           | `["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"]`                                                                                         |
+| [`@semantic-release/git: message`](https://github.com/semantic-release/git#message)         | `chore(release): ${nextRelease.version} [skip ci] ${nextRelease.notes}`                                                                                       |
 
 Other options use their default values. See each [plugin](#plugins) documentation for available options.
