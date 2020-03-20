@@ -1,5 +1,17 @@
 # Changelog
 
+# [2.0.0](https://github.com/carbonaut-io/release-docs/compare/v1.21.0...v2.0.0) (2020-03-20)
+
+
+### Features
+
+* force major update version. Relates to [#6](https://github.com/carbonaut-io/release-docs/issues/6) ([fe7a76c](https://github.com/carbonaut-io/release-docs/commit/fe7a76c))
+
+
+### BREAKING CHANGES
+
+* deprecated command release-docs-update-changelog-project. Use release-docs-changelog-upload-s3 instead.
+
 # [1.21.0](https://github.com/carbonaut-io/release-docs/compare/v1.20.0...v1.21.0) (2020-03-20)
 
 
