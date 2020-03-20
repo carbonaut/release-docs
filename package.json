@@ -13,17 +13,17 @@
   },
   "bin": {
     "release-docs-setup": "src/modules/setup/index.js",
-    "release-docs-update-changelog-project": "src/modules/update-changelog-project/index.js",
-    "release-docs-adjust-version": "src/modules/adjust-version/index.js"
+    "release-docs-adjust-version": "src/modules/adjust-version/index.js",
+    "release-docs-changelog-upload-s3": "src/modules/changelog-upload-s3/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@octokit/rest": "^16.28.7",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/exec": "^3.3.5",
-    "@semantic-release/git": "^7.0.16",
     "@semantic-release/npm": "^5.1.13",
+    "aws-sdk": "^2.639.0",
+    "bluebird": "^3.7.2",
     "changelog-parser": "^2.8.0",
     "debug": "^4.1.1",
     "execa": "^2.0.3",
