@@ -1,0 +1,15 @@
+{
+  "error": [
+    {
+      "description": "all NULL params",
+      "params": {
+        "accessKeyId": null,
+        "secretAccessKey": null
+      }
+    },
+    {
+      "description": "all UNDEFINED params",
+      "params": {}
+    }
+  ]
+}

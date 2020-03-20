@@ -1,0 +1,18 @@
+{
+  "success": {
+    "params": {
+      "filePath": "src/modules/changelog-upload-s3/__tests__/entries/CHANGELOG-EXAMPLE.md"
+    },
+    "expectedResponse": {
+      "title": "CHANGELOG-EXAMPLE.md"
+    }
+  },
+  "error": {
+    "params": {
+      "filePath": "file-does-not-exist.txt"
+    },
+    "expectedResponse": {
+      "message": "File \"{INIT_CWD}/file-does-not-exist.txt\" not found."
+    }
+  }
+}
