@@ -23,7 +23,7 @@ const init = async () => {
           accessKeyId: argv['awsAccessKeyId'],
           secretAccessKey: argv['awsSecretAccessKey']
         });
-        const res = await uploadService.uploadFile(ctx.changelogParsedContent, argv['key'], argv['awsBucket']);
+        const res = await uploadService.uploadFile(ctx.changelogParsedContent, `${argv['key']}.json`, argv['awsBucket']);
         task.title = `File uploaded successfully to ${res.Location}`;
       }
     }
