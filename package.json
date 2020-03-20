@@ -5,7 +5,8 @@
   "main": "src/modules/shareable-configuration/index.js",
   "scripts": {
     "postinstall": "release-docs-setup",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "mocha 'src/**/*.spec.js' --timeout=5000"
   },
   "publishConfig": {
     "access": "public"
@@ -32,6 +33,9 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
+    "aws-sdk-mock": "^5.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
     "semantic-release": "^15.13.19"
   }
 }
