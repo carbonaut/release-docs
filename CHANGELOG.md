@@ -1,5 +1,16 @@
 # Changelog
 
+# [1.21.0](https://github.com/carbonaut-io/release-docs/compare/v1.20.0...v1.21.0) (2020-03-20)
+
+
+### Features
+
+* **changelog-upload-s3:** create changelog upload s3 script. Relates to [#4](https://github.com/carbonaut-io/release-docs/issues/4) ([87013eb](https://github.com/carbonaut-io/release-docs/commit/87013eb))
+* **changelog-upload-s3:** create service to handle S3 bucket file upload. Relates to [#4](https://github.com/carbonaut-io/release-docs/issues/4) ([ddc0952](https://github.com/carbonaut-io/release-docs/commit/ddc0952))
+* **changelog-upload-s3:** Show uploaded file URL. Relates to [#4](https://github.com/carbonaut-io/release-docs/issues/4) ([65be3b8](https://github.com/carbonaut-io/release-docs/commit/65be3b8))
+* **parse-changelog:** BREAKING CHANGE remove support to commit changelog to github projects. Relates to [#4](https://github.com/carbonaut-io/release-docs/issues/4) ([2062fdd](https://github.com/carbonaut-io/release-docs/commit/2062fdd))
+* **shareable-configuration:** update successCmd script. Relates to [#4](https://github.com/carbonaut-io/release-docs/issues/4) ([8d86e3b](https://github.com/carbonaut-io/release-docs/commit/8d86e3b))
+
 # [1.20.0](https://github.com/carbonaut-io/release-docs/compare/v1.19.0...v1.20.0) (2019-09-04)
 
 
