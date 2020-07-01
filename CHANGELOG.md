@@ -1,5 +1,18 @@
 # Changelog
 
+# [2.1.0](https://github.com/carbonaut/release-docs/compare/v2.0.0...v2.1.0) (2020-07-01)
+
+
+### Bug Fixes
+
+* **deployment:** update jobs dependency. Relates to [#14](https://github.com/carbonaut/release-docs/issues/14) ([2464b49](https://github.com/carbonaut/release-docs/commit/2464b49))
+
+
+### Features
+
+* **github-actions:** integrate CI/CD process with GitHub Actions. Relates to [#14](https://github.com/carbonaut/release-docs/issues/14) ([ab9f2e1](https://github.com/carbonaut/release-docs/commit/ab9f2e1))
+* **github-actions:** remove Circle CI integration. Relates to [#14](https://github.com/carbonaut/release-docs/issues/14) ([ee8dfe3](https://github.com/carbonaut/release-docs/commit/ee8dfe3))
+
 # [2.0.0](https://github.com/carbonaut-io/release-docs/compare/v1.21.0...v2.0.0) (2020-03-20)
 
 
