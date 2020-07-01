@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/carbonaut-io/release-docs.svg?style=svg&circle-token=73ff7147b9024522ade955b02af304759d85cdf4)](https://circleci.com/gh/carbonaut-io/release-docs)
+![deployment](https://github.com/carbonaut/release-docs/workflows/deployment/badge.svg?branch=master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # @carbounaut/release-docs
