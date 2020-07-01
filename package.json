@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "release-docs-setup",
     "semantic-release": "semantic-release",
-    "test": "mocha 'src/**/*.spec.js' --timeout=5000"
+    "test": "mocha 'src/**/*.spec.js' --timeout=5000",
+    "lint": "echo \"Error: linter not configured.\""
   },
   "publishConfig": {
     "access": "public"

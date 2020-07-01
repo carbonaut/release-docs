@@ -1,0 +1,72 @@
+name: deployment
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  CI: true
+  NG_CLI_ANALYTICS: false
+  NODE_VERSION: 12.x
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore Dependencies
+        id: node-modules-cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Cache Dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore Dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Generate Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run semantic-release
+
+  skip-ci:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Skip CI
+        run: echo "Deploy triggered by semantic release. Skipping all jobs."
