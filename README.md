@@ -34,7 +34,7 @@ This shareable configuration performs the following actions:
 ## Install
 
 ```bash
-$ npm install --save-dev semantic-release@15 @carbonaut/release-docs
+$ npm install --save-dev semantic-release@17 @carbonaut/release-docs
 ```
 
 ## Usage
