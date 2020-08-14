@@ -77,7 +77,7 @@ Ensure that your CI configuration has the following environment variables set:
 $ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS access key> RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID=<AWS secret access key> RELEASE_DOCS_AWS_BUCKET=<AWS bucket> GH_TOKEN=<GitHub token> npm run semantic-release --dry-run=false --no-ci
 ```
 
-### Automation With CI
+### Running in CI
 
 First, setup all the required [environment variables](#Configuration) on your CI environment. Then just call the following script in your CI configuration file to trigger the release process:
 
