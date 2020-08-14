@@ -71,7 +71,7 @@ Ensure that your CI configuration has the following environment variables set:
 
 - **RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID**: [AWS secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted.
 
-### Triggering a Release Locally
+### Triggering a Releasing Locally
 
 ```bash
 $ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS access key> RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID=<AWS secret access key> RELEASE_DOCS_AWS_BUCKET=<AWS bucket> GH_TOKEN=<GitHub token> npm run semantic-release --dry-run=false --no-ci
