@@ -79,7 +79,7 @@ $ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS acces
 
 ### Automation With CI
 
-First, setup all the required [environment variables](#Configuration) on your CI environment. Then just call the following script on your CI configuration file to trigger the release process:
+First, setup all the required [environment variables](#Configuration) on your CI environment. Then just call the following script in your CI configuration file to trigger the release process:
 
 ```bash
 $ npm run semantic-release
