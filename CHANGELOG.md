@@ -1,5 +1,36 @@
 # Changelog
 
+# [3.0.0](https://github.com/carbonaut/release-docs/compare/v2.1.0...v3.0.0) (2020-08-31)
+
+
+### Build System
+
+* **dependencies:**  updates all dependencies to its latest version. ([fd4bd2a](https://github.com/carbonaut/release-docs/commit/fd4bd2a54f454ffd4598c598158b1eee35586a80))
+
+
+### BREAKING CHANGES
+
+* **dependencies:** major semantic-release and related dependencies update.
+
+* docs(README): improve documentation.
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): fix mispelling.
+
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
 # [2.1.0](https://github.com/carbonaut/release-docs/compare/v2.0.0...v2.1.0) (2020-07-01)
 
 
