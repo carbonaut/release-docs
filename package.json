@@ -20,15 +20,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.5",
-    "aws-sdk": "^2.731.0",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/exec": "^3.3.5",
+    "@semantic-release/npm": "^5.1.13",
+    "@semantic-release/git": "^7.0.16",
+    "aws-sdk": "^2.639.0",
     "bluebird": "^3.7.2",
     "changelog-parser": "^2.8.0",
     "debug": "^4.1.1",
-    "execa": "^4.0.3",
+    "execa": "^4.0.0",
     "listr": "^0.14.3",
     "minimist": "^1.2.5",
     "showdown": "^1.9.1",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "aws-sdk-mock": "^5.1.0",
     "chai": "^4.2.0",
-    "mocha": "^8.1.1",
-    "semantic-release": "^17.1.1"
+    "mocha": "^7.1.1",
+    "semantic-release": "^15.13.19"
   }
 }

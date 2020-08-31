@@ -34,12 +34,10 @@ This shareable configuration performs the following actions:
 ## Install
 
 ```bash
-$ npm install --save-dev semantic-release@17 @carbonaut/release-docs
+$ npm install --save-dev semantic-release@15 @carbonaut/release-docs
 ```
 
 ## Usage
-
-### Project Setup
 
 When installing this package for the first time, the following shareable configuration (`.releaserc.json`) is automatically added to your project root folder:
 
@@ -49,21 +47,9 @@ When installing this package for the first time, the following shareable configu
 }
 ```
 
-Add the following `semantic-release` command into the scripts section on your `package.json`:
-
-```json
-...
-"scripts": {
-    "semantic-release": "semantic-release"
-  }
-...
-```
-
-### Environment Variables Configuration
+### Configuration
 
 Ensure that your CI configuration has the following environment variables set:
-
-- **GH_TOKEN**: A GitHub [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token);
 
 - **RELEASE_DOCS_PROJECT_ID**: Unique project identifier. It will be used as the changelog file title on the S3 bucket;
 
@@ -71,18 +57,18 @@ Ensure that your CI configuration has the following environment variables set:
 
 - **RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID**: [AWS secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted.
 
-### Releasing Locally
+### Trigger a release locally
 
 ```bash
-$ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS access key> RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID=<AWS secret access key> RELEASE_DOCS_AWS_BUCKET=<AWS bucket> GH_TOKEN=<GitHub token> npm run semantic-release --dry-run=false --no-ci
+$ RELEASE_DOCS_PROJECT_ID=<project ID> RELEASE_DOCS_AWS_ACCESS_KEY_ID=<AWS access key> RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID=<AWS secret access key> RELEASE_DOCS_AWS_BUCKET=<AWS bucket> GH_TOKEN=<GitHub token> semantic-release --dry-run=false --no-ci
 ```
 
-### Running in CI
+### Automation with CI
 
-First, setup all the required [environment variables](#Configuration) on your CI environment. Then just call the following script in your CI configuration file to trigger the release process:
+First, setup all the required [environment variables](#Configuration) on your CI environment. Then just add the following script to your CI configuration file:
 
 ```bash
-$ npm run semantic-release
+$ semantic-release
 ```
 
 ### Scripts
@@ -110,7 +96,7 @@ Upload the new generated CHANGELOG to a S3 bucket:
 release-docs-changelog-upload-s3 --key=<ṕroject ID> --awsAccessKeyId=<AWS access key> --awsSecretAccessKey<AWS secret access key> --awsBucket=<AWS bucket>"
 ```
 
-### Overwritten Options
+### Overwritten options
 
 This following options are set by this shareable config:
 
