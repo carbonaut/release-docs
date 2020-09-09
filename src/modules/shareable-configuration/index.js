@@ -13,6 +13,13 @@ module.exports = {
       "assets": ["package-lock.json", "package.json", "CHANGELOG.md", "config.xml"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
+    [
+      "semantic-release-slack-bot",
+      {
+        "notifyOnSuccess": true,
+        "markdownReleaseNotes": true
+      }
+    ],
     "@semantic-release/github"
   ],
   "preset": "angular"
