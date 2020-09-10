@@ -14,6 +14,7 @@ This shareable configuration uses the following plugins:
 - [`@semantic-release/github`](https://github.com/semantic-release/github)
 - [`@semantic-release/exec`](https://github.com/semantic-release/exec)
 - [`@semantic-release/git`](https://github.com/semantic-release/git)
+- [`semantic-release-slack-bot`](https://github.com/juliuscc/semantic-release-slack-bot)
 
 ## Summary
 
@@ -30,6 +31,7 @@ This shareable configuration performs the following actions:
     - `config.xml`
 6. Publish a GitHub release and comment on released Pull Requests/Issues ([`@semantic-release/github`](https://github.com/semantic-release/github))
 7. Upload the new generated CHANGELOG to a S3 bucket ([release-docs-changelog-upload-s3](#release-docs-changelog-upload-s3))
+8. Send a release notification on Slack from a slack bot ([`semantic-release-slack-bot`](https://github.com/juliuscc/semantic-release-slack-bot))
 
 ## Install
 
@@ -69,7 +71,9 @@ Ensure that your CI configuration has the following environment variables set:
 
 - **RELEASE_DOCS_AWS_ACCESS_KEY_ID**: [AWS access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted; 
 
-- **RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID**: [AWS secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted.
+- **RELEASE_DOCS_AWS_SECRET_ACCESS_KEY_ID**: [AWS secret access key](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) from the S3 bucket where the changelog file will be hosted;
+
+- **SLACK_WEBHOOK**: [Slack webhook](https://api.slack.com/apps?new_app=1) created when adding app to workspace.
 
 ### Releasing Locally
 
