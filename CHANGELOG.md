@@ -1,5 +1,70 @@
 # Changelog
 
+# [4.0.0](https://github.com/carbonaut/release-docs/compare/v3.0.0...v4.0.0) (2020-09-11)
+
+
+* Development (#33) ([19e094f](https://github.com/carbonaut/release-docs/commit/19e094f71e08b47f86b6282baa1fe90bc0816c46)), closes [#33](https://github.com/carbonaut/release-docs/issues/33) [#32](https://github.com/carbonaut/release-docs/issues/32)
+
+
+### Features
+
+* **slack-bot:** integrates with semantic-release-slack-bot plugin. ([f5f3056](https://github.com/carbonaut/release-docs/commit/f5f3056aee933a311c6faf9670ff33d4e12f8756))
+
+
+### BREAKING CHANGES
+
+* major semantic-release and related dependencies update.
+
+* docs(README): improve documentation.
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): fix mispelling.
+
+* feat(slack-bot): integrates with semantic-release-slack-bot plugin.
+* new environment variable SLACK_WEBHOOK required.
+
+* build(): integrates with slack-bot plugin.
+
+* docs(README): adds information about slack-bot plugin.
+* **slack-bot:** major semantic-release and related dependencies update.
+
+* docs(README): improve documentation.
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): content improvement.
+
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
+* docs(README): fix mispelling.
+
+* feat(slack-bot): integrates with semantic-release-slack-bot plugin.
+* **slack-bot:** new environment variable SLACK_WEBHOOK required.
+
+* build(): integrates with slack-bot plugin.
+
+* docs(README): adds information about slack-bot plugin.
+
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Co-authored-by: Arthur <artfloriani@gmail.com>
+
 # [3.0.0](https://github.com/carbonaut/release-docs/compare/v2.1.0...v3.0.0) (2020-08-31)
 
 
