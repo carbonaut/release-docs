@@ -39,6 +39,6 @@
     "aws-sdk-mock": "^5.1.0",
     "chai": "^4.2.0",
     "mocha": "^8.1.1",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^19.0.3"
   }
 }
